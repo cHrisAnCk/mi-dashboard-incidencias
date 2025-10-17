@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Incidencias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .metric-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 2em;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .metric-label {
+            color: #666;
+            margin-top: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .sigloc-table th {
+            background-color: #2196F3;
+        }
+        .sigea-table th {
+            background-color: #FF9800;
+        }
+        .loading {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+        .success {
+            color: green;
+            text-align: center;
+        }
+        .charts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .chart-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .chart-card h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .map-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .map-container h3 {
+            margin-bottom: 10px;
+        }
+        #peru-svg {
+            max-width: 100%;
+            height: 700px; /* Aumentado de 500px a 700px para hacerlo más grande */
+            border: 1px solid #ddd;
+        }
+        #peru-svg path {
+            fill: #FFEDA0; /* Color por defecto */
+            stroke: #ffffff;
+            stroke-width: 0.5;
+            cursor: pointer;
+            transition: fill 0.3s;
+        }
+        #peru-svg path:hover {
+            fill: #BD0026 !important; /* Resaltado al hover */
+        }
+    </style>
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- D3.js para renderizar GeoJSON a SVG -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <h1>Dashboard de Incidencias (desde Google Sheet)</h1>
+    
+    <!-- Sección de Métricas Resumidas -->
+    <div class="dashboard" id="metrics-dashboard" style="display: none;">
+        <div class="metric-card">
+            <div class="metric-value" id="total-sigloc">0</div>
+            <div class="metric-label">Total SIGLOC</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value" id="total-sigea">0</div>
+            <div class="metric-label">Total SIGEA</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value" id="total-resuelto">0</div>
+            <div class="metric-label">Total Resueltos</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value" id="total-media-prioridad">0</div>
+            <div class="metric-label">Prioridad Media</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value" id="total-piura">0</div>
+            <div class="metric-label">Ubicación Piura</div>
+        </div>
+    </div>
+
+    <!-- Sección de Gráficos -->
+    <div class="charts-container" id="charts-container" style="display: none;">
+        <div class="chart-card">
+            <h3>Distribución por Prioridad (SIGLOC)</h3>
+            <canvas id="prioridad-sigloc-chart"></canvas>
+        </div>
+        <div class="chart-card">
+            <h3>Distribución por Prioridad (SIGEA)</h3>
+            <canvas id="prioridad-sigea-chart"></canvas>
+        </div>
+        <div class="chart-card">
+            <h3>Estados por Sistema (Pie)</h3>
+            <canvas id="estados-sistema-chart"></canvas>
+        </div>
+        <div class="chart-card">
+            <h3>Incidencias por Ubicación</h3>
+            <canvas id="ubicacion-chart"></canvas>
+        </div>
+    </div>
+
+    <!-- Sección del Mapa SVG -->
+    <div class="map-container" id="map-container" style="display: none;">
+        <h3>Mapa de Incidencias por Departamento en Perú (ODPE)</h3>
+        <svg id="peru-svg"></svg>
+        <p style="color: #666; font-style: italic;">Pasa el cursor sobre un departamento para ver la cantidad de incidencias en las ODPE. Colores más intensos indican más incidencias.</p>
+    </div>
+
+    <!-- Tablas Originales (opcionales, colapsables) -->
+    <details>
+        <summary><h2>Tabla Detallada SIGLOC (Haz clic para expandir)</h2></summary>
+        <div id="sigloc-status" class="loading">Cargando datos...</div>
+        <table id="sigloc-table" class="sigloc-table" style="display: none;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Hora</th>
+                    <th>Fecha</th>
+                    <th>Ubicación</th>
+                    <th>Sistema</th>
+                    <th>Tipo</th>
+                    <th>Nombre</th>
+                    <th>Método Contacto</th>
+                    <th>Teléfono</th>
+                    <th>Asignado a</th>
+                    <th>Tipo Incidente</th>
+                    <th>Descripción</th>
+                    <th>Categoría</th>
+                    <th>Prioridad</th>
+                    <th>Estado</th>
+                    <th>Relacionado</th>
+                    <th>Fecha Resolución</th>
+                    <th>Hora Resolución</th>
+                    <th>Acción Tomada</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </details>
+
+    <details>
+        <summary><h2>Tabla Detallada SIGEA (Haz clic para expandir)</h2></summary>
+        <div id="sigea-status" class="loading">Cargando datos...</div>
+        <table id="sigea-table" class="sigea-table" style="display: none;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Hora</th>
+                    <th>Fecha</th>
+                    <th>Ubicación</th>
+                    <th>Sistema</th>
+                    <th>Tipo</th>
+                    <th>Nombre</th>
+                    <th>Método Contacto</th>
+                    <th>Teléfono</th>
+                    <th>Asignado a</th>
+                    <th>Tipo Incidente</th>
+                    <th>Descripción</th>
+                    <th>Categoría</th>
+                    <th>Prioridad</th>
+                    <th>Estado</th>
+                    <th>Relacionado</th>
+                    <th>Fecha Resolución</th>
+                    <th>Hora Resolución</th>
+                    <th>Acción Tomada</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </details>
+
+    <script>
+        // Tu URL CSV pública
+        const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQtKYVjJAPNrrX9vbj4I6r28YBCU0x3EmAE9uDh6GjIoPVDFAmAI_QcDzC0kCw3sg/pub?gid=479335877&single=true&output=csv';
+
+        // URL del GeoJSON completo de Perú (departamentos)
+        const geoJsonUrl = 'https://raw.githubusercontent.com/juaneladio/peru-geojson/master/peru_departamental_simple.geojson';
+
+        // Función para parsear CSV correctamente (maneja comas y quotes)
+        function parseCSV(text) {
+            const lines = text.trim().split('\n');
+            const result = [];
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                const row = [];
+                let col = '';
+                let inQuotes = false;
+                for (let j = 0; j < line.length; j++) {
+                    const char = line[j];
+                    if (char === '"') {
+                        inQuotes = !inQuotes;
+                    } else if (char === ',' && !inQuotes) {
+                        row.push(col.trim().replace(/"/g, ''));
+                        col = '';
+                    } else {
+                        col += char;
+                    }
+                }
+                row.push(col.trim().replace(/"/g, '')); // Última columna
+                if (row.length > 0 && row.some(cell => cell.trim() !== '')) {
+                    result.push(row);
+                }
+            }
+            return result;
+        }
+
+        let allData = [];
+        let siglocData = [];
+        let sigeaData = [];
+        let deptCounts = {};
+
+        async function cargarDatos() {
+            const statusSigloc = document.getElementById('sigloc-status');
+            const statusSigea = document.getElementById('sigea-status');
+            
+            try {
+                statusSigloc.textContent = 'Cargando datos...';
+                statusSigea.textContent = 'Cargando datos...';
+                
+                const response = await fetch(csvUrl);
+                if (!response.ok) throw new Error(`Error HTTP: ${response.status} - Verifica la URL.`);
+                const csvText = await response.text();
+                
+                // Parsear CSV
+                allData = parseCSV(csvText);
+                if (allData.length < 2) throw new Error('No hay datos suficientes en el CSV.');
+                
+                const dataRows = allData.slice(1); // Saltar headers si los hay
+                
+                // Clasificar por sistema (columna 5, índice 4)
+                siglocData = dataRows.filter(row => row[4] && row[4].toUpperCase().includes('SIGLOC'));
+                sigeaData = dataRows.filter(row => row[4] && row[4].toUpperCase().includes('SIGEA'));
+                
+                // Contar incidencias por departamento
+                calcularDeptCounts(dataRows);
+                
+                // Insertar en tablas
+                insertarDatos('#sigloc-table tbody', siglocData);
+                insertarDatos('#sigea-table tbody', sigeaData);
+                
+                // Calcular métricas y mostrar dashboard
+                calcularMetricas();
+                renderizarGraficos();
+                initSVGMap(); // Inicializar mapa SVG
+                
+                // Actualizar status y mostrar secciones
+                const siglocTable = document.getElementById('sigloc-table');
+                const sigeaTable = document.getElementById('sigea-table');
+                const metricsDashboard = document.getElementById('metrics-dashboard');
+                const chartsContainer = document.getElementById('charts-container');
+                const mapContainer = document.getElementById('map-container');
+                
+                if (siglocData.length > 0) {
+                    siglocTable.style.display = 'table';
+                    statusSigloc.textContent = `Cargados ${siglocData.length} registros para SIGLOC.`;
+                    statusSigloc.className = 'success';
+                } else {
+                    statusSigloc.textContent = 'No hay datos para SIGLOC.';
+                    statusSigloc.className = 'loading';
+                }
+                
+                if (sigeaData.length > 0) {
+                    sigeaTable.style.display = 'table';
+                    statusSigea.textContent = `Cargados ${sigeaData.length} registros para SIGEA.`;
+                    statusSigea.className = 'success';
+                } else {
+                    statusSigea.textContent = 'No hay datos para SIGEA.';
+                    statusSigea.className = 'loading';
+                }
+                
+                // Mostrar dashboard
+                metricsDashboard.style.display = 'grid';
+                chartsContainer.style.display = 'grid';
+                mapContainer.style.display = 'block';
+                
+            } catch (error) {
+                console.error('Error:', error);
+                statusSigloc.innerHTML = `<div class="error">Error: ${error.message}. <br>Revisa la consola (F12) para más detalles.</div>`;
+                statusSigea.innerHTML = `<div class="error">Error: ${error.message}. <br>Revisa la consola (F12) para más detalles.</div>`;
+            }
+        }
+
+        function calcularDeptCounts(dataRows) {
+            deptCounts = {};
+            dataRows.forEach(row => {
+                let dept = row[3]?.trim(); // Columna Ubicación (índice 3)
+                if (dept) {
+                    // Mapeo especial para ODPE
+                    if (dept === 'Sede Central') {
+                        dept = 'LIMA';
+                    } else if (dept.startsWith('ODPE ')) {
+                        dept = dept.substring(5).trim().toUpperCase(); // Extraer después de "ODPE " y normalizar
+                    } else {
+                        dept = dept.toUpperCase(); // Normalizar
+                    }
+                    deptCounts[dept] = (deptCounts[dept] || 0) + 1;
+                }
+            });
+            console.log('Conteo de departamentos:', deptCounts); // Para debug en consola
+        }
+        
+        function insertarDatos(selector, data) {
+            const tbody = document.querySelector(selector);
+            tbody.innerHTML = '';
+            data.forEach(row => {
+                const tr = document.createElement('tr');
+                for (let j = 0; j < 20; j++) {
+                    const td = document.createElement('td');
+                    td.textContent = row[j] || '';
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            });
+        }
+        
+        function calcularMetricas() {
+            // Totales
+            document.getElementById('total-sigloc').textContent = siglocData.length;
+            document.getElementById('total-sigea').textContent = sigeaData.length;
+            
+            // Total resueltos (columna 15, índice 14: Estado)
+            const totalResuelto = [...siglocData, ...sigeaData].filter(row => row[14] && row[14].toUpperCase().includes('RESUELTO')).length;
+            document.getElementById('total-resuelto').textContent = totalResuelto;
+            
+            // Prioridad Media (columna 14, índice 13)
+            const totalMedia = [...siglocData, ...sigeaData].filter(row => row[13] && row[13].toUpperCase().includes('MEDIA')).length;
+            document.getElementById('total-media-prioridad').textContent = totalMedia;
+            
+            // Ubicación Piura (columna 4, índice 3)
+            const totalPiura = [...siglocData, ...sigeaData].filter(row => row[3] && row[3].toUpperCase().includes('PIURA')).length;
+            document.getElementById('total-piura').textContent = totalPiura;
+        }
+        
+        function renderizarGraficos() {
+            // Gráfico 1: Prioridades SIGLOC (Bar)
+            const prioridadesSigloc = {};
+            siglocData.forEach(row => {
+                const prio = row[13] || 'Desconocida';
+                prioridadesSigloc[prio] = (prioridadesSigloc[prio] || 0) + 1;
+            });
+            new Chart(document.getElementById('prioridad-sigloc-chart'), {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(prioridadesSigloc),
+                    datasets: [{ label: 'Cantidad', data: Object.values(prioridadesSigloc), backgroundColor: 'rgba(33, 150, 243, 0.6)' }]
+                },
+                options: { scales: { y: { beginAtZero: true } } }
+            });
+            
+            // Gráfico 2: Prioridades SIGEA (Bar)
+            const prioridadesSigea = {};
+            sigeaData.forEach(row => {
+                const prio = row[13] || 'Desconocida';
+                prioridadesSigea[prio] = (prioridadesSigea[prio] || 0) + 1;
+            });
+            new Chart(document.getElementById('prioridad-sigea-chart'), {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(prioridadesSigea),
+                    datasets: [{ label: 'Cantidad', data: Object.values(prioridadesSigea), backgroundColor: 'rgba(255, 152, 0, 0.6)' }]
+                },
+                options: { scales: { y: { beginAtZero: true } } }
+            });
+            
+            // Gráfico 3: Estados por Sistema (Pie)
+            const estadosSigloc = {};
+            siglocData.forEach(row => {
+                const estado = row[14] || 'Desconocido';
+                estadosSigloc[estado] = (estadosSigloc[estado] || 0) + 1;
+            });
+            const estadosSigea = {};
+            sigeaData.forEach(row => {
+                const estado = row[14] || 'Desconocido';
+                estadosSigea[estado] = (estadosSigea[estado] || 0) + 1;
+            });
+            const allLabels = [...new Set([...Object.keys(estadosSigloc), ...Object.keys(estadosSigea)])];
+            new Chart(document.getElementById('estados-sistema-chart'), {
+                type: 'pie',
+                data: {
+                    labels: allLabels,
+                    datasets: [
+                        { label: 'SIGLOC', data: allLabels.map(l => estadosSigloc[l] || 0), backgroundColor: 'rgba(33, 150, 243, 0.6)' },
+                        { label: 'SIGEA', data: allLabels.map(l => estadosSigea[l] || 0), backgroundColor: 'rgba(255, 152, 0, 0.6)' }
+                    ]
+                }
+            });
+            
+            // Gráfico 4: Ubicaciones (Bar general)
+            const ubicaciones = {};
+            [...siglocData, ...sigeaData].forEach(row => {
+                const ubi = row[3] || 'Desconocida';
+                ubicaciones[ubi] = (ubicaciones[ubi] || 0) + 1;
+            });
+            new Chart(document.getElementById('ubicacion-chart'), {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(ubicaciones),
+                    datasets: [{ label: 'Cantidad', data: Object.values(ubicaciones), backgroundColor: 'rgba(76, 175, 80, 0.6)' }]
+                },
+                options: { scales: { y: { beginAtZero: true } } }
+            });
+        }
+
+        // Inicializar Mapa SVG con D3.js
+        async function initSVGMap() {
+            const svg = d3.select("#peru-svg");
+            const width = 800;
+            const height = 700; // Ajustado para coincidir con el nuevo tamaño del SVG
+            svg.attr("width", width).attr("height", height);
+
+            // Proyección para Perú (ajustada ligeramente para mejor fit)
+            const projection = d3.geoMercator().scale(2200).translate([width / 2, height / 1.3]).center([-75, -9]);
+            const path = d3.geoPath().projection(projection);
+
+            try {
+                const geoData = await d3.json(geoJsonUrl);
+                svg.selectAll("path")
+                    .data(geoData.features)
+                    .enter()
+                    .append("path")
+                    .attr("d", path)
+                    .attr("class", "department")
+                    .style("fill", d => {
+                        const name = d.properties.NOMBDEP; // NOMBDEP en mayúsculas
+                        const count = deptCounts[name] || 0;
+                        return count > 10 ? '#800026' :
+                               count > 5  ? '#BD0026' :
+                               count > 1  ? '#E31A1C' :
+                               count > 0  ? '#FC4E2A' :
+                                            '#FFEDA0';
+                    })
+                    .on("mouseover", function(event, d) {
+                        d3.select(this).style("fill", "#BD0026");
+                        // Tooltip simple con title
+                        const title = this.querySelector("title") || document.createElementNS("http://www.w3.org/2000/svg", "title");
+                        const name = d.properties.NOMBDEP;
+                        title.textContent = `${name}: ${deptCounts[name] || 0} incidencias`;
+                        this.appendChild(title);
+                    })
+                    .on("mouseout", function(event, d) {
+                        d3.select(this).style("fill", () => {
+                            const name = d.properties.NOMBDEP;
+                            const count = deptCounts[name] || 0;
+                            return count > 10 ? '#800026' :
+                                   count > 5  ? '#BD0026' :
+                                   count > 1  ? '#E31A1C' :
+                                   count > 0  ? '#FC4E2A' :
+                                                '#FFEDA0';
+                        });
+                        const title = this.querySelector("title");
+                        if (title) title.remove();
+                    });
+
+                // Ajustar vista
+                svg.attr("viewBox", `0 0 ${width} ${height}`);
+            } catch (error) {
+                console.error('Error cargando GeoJSON:', error);
+                svg.append("text").text("Error al cargar mapa").attr("x", width/2).attr("y", height/2).attr("text-anchor", "middle");
+            }
+        }
+        
+        // Cargar al iniciar
+        cargarDatos();
+    </script>
+</body>
+</html>
