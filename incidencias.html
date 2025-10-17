@@ -100,14 +100,20 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 40px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrado horizontal */
+            justify-content: center; /* Centrado vertical */
         }
         .map-container h3 {
             margin-bottom: 10px;
+            flex-shrink: 0; /* Evita que el título se comprima */
         }
         #peru-svg {
             max-width: 100%;
-            height: 700px; /* Aumentado de 500px a 700px para hacerlo más grande */
+            height: 900px; /* Altura fija para el contenedor */
             border: 1px solid #ddd;
+            flex-shrink: 0; /* Evita que el SVG se comprima */
         }
         #peru-svg path {
             fill: #FFEDA0; /* Color por defecto */
@@ -346,8 +352,8 @@
                 // Mostrar dashboard
                 metricsDashboard.style.display = 'grid';
                 chartsContainer.style.display = 'grid';
-                mapContainer.style.display = 'block';
-                
+                mapContainer.style.display = 'flex'; // Activamos flex para centrado
+                mapContainer.style.minHeight = '100vh'; // Altura mínima para centrar verticalmente
             } catch (error) {
                 console.error('Error:', error);
                 statusSigloc.innerHTML = `<div class="error">Error: ${error.message}. <br>Revisa la consola (F12) para más detalles.</div>`;
@@ -480,11 +486,11 @@
         async function initSVGMap() {
             const svg = d3.select("#peru-svg");
             const width = 800;
-            const height = 700; // Ajustado para coincidir con el nuevo tamaño del SVG
+            const height = 900; // Altura fija
             svg.attr("width", width).attr("height", height);
 
-            // Proyección para Perú (ajustada ligeramente para mejor fit)
-            const projection = d3.geoMercator().scale(2200).translate([width / 2, height / 1.3]).center([-75, -9]);
+            // Proyección centrada: ajustada para centrar el mapa vertical y horizontalmente
+            const projection = d3.geoMercator().scale(2200).translate([width / 2, height / 2]).center([-75, -9]); // Centrado perfecto en height/2
             const path = d3.geoPath().projection(projection);
 
             try {
@@ -526,7 +532,7 @@
                         if (title) title.remove();
                     });
 
-                // Ajustar vista
+                // Ajustar vista para centrar el contenido
                 svg.attr("viewBox", `0 0 ${width} ${height}`);
             } catch (error) {
                 console.error('Error cargando GeoJSON:', error);
