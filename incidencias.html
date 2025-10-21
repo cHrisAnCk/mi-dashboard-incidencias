@@ -207,7 +207,7 @@
             { id: 'sam', tableId: 'sam-table', statusId: 'sam-status', name: 'SAM', class: 'sam-table' }
         ];
 
-        // Generar estructura de tablas inmediatamente
+    
         const tablesContainer = document.getElementById('tables-container');
         function createTableHTML(system) {
             console.log('Generando HTML para tabla:', system.name);
@@ -248,12 +248,10 @@
             `;
         }
 
-        // Insertar estructura de tablas al cargar la página
         console.log('Insertando estructura de tablas inicial...');
         tablesContainer.innerHTML = systems.map(system => createTableHTML(system)).join('');
         console.log('Estructura de tablas insertada en el DOM');
 
-        // Resto del código (carga de datos, métricas, gráficos, mapa)
         const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQtKYVjJAPNrrX9vbj4I6r28YBCU0x3EmAE9uDh6GjIoPVDFAmAI_QcDzC0kCw3sg/pub?gid=479335877&single=true&output=csv';
         const geoJsonUrl = 'https://raw.githubusercontent.com/juaneladio/peru-geojson/master/peru_departamental_simple.geojson';
 
@@ -582,3 +580,4 @@
     </script>
 </body>
 </html>
+
