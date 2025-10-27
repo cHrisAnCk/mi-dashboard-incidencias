@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Datos de Personas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0e7d8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #4a9a8f;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90vw;
+            max-width: 1200px;
+            overflow-y: auto;
+        }
+        .header {
+            text-align: center;
+            color: #f7eded;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .table-container {
+            background-color: #f5e8c7;
+            border-radius: 10px;
+            padding: 15px;
+            overflow-x: auto; /* Para desplazamiento horizontal si es necesario */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+            color: #333;
+            font-size: 12px; /* Tamaño reducido para tabla ancha */
+        }
+        th {
+            background-color: #333;
+            color: #fff;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        tr:hover {
+            background-color: #e0d3b2;
+            transition: background-color 0.3s;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #555;
+            transition: background-color 0.3s;
+        }
+        @media (max-width: 768px) {
+    .container {
+        width: 90vw;
+        padding: 10px;
+    }
+    .grid {
+        grid-template-columns: 1fr; /* Cambia a una columna en pantallas pequeñas */
+        gap: 10px;
+    }
+    .card, .card2 {
+        height: auto; /* Ajusta la altura automáticamente */
+        padding: 10px;
+    }
+    .card iframe, .card img {
+        max-width: 100%;
+        height: auto;
+    }
+    .table-container {
+        padding: 10px;
+    }
+    th, td {
+        font-size: 10px; /* Reduce el tamaño de fuente en tablas para pantallas pequeñas */
+        padding: 6px;
+    }
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        font-size: 20px;
+    }
+    .card h2, .card2 h2 {
+        font-size: 18px;
+    }
+    .card h3 {
+        font-size: 14px;
+    }
+    .card p, .card2 p {
+        font-size: 12px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">TABLA DE DATOS DE ESPECIALISTAS DE SOPORTE</div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>NOMBRES Y APELLIDOS</th>
+                        <th>DNI</th>
+                        <th>CORREO</th>
+                        <th>ANEXO</th>
+                        <th>CELULAR</th>
+                        <th>MODELO DE CELULAR</th>
+                        <th>MAC</th>
+                        <th>ODPE ASIGNADAS</th>
+                        <th>CORREO GENÉRICO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>RAFAEL HECTOR GUZMAN ZUÑIGA</td>
+                        <td>25487511</td>
+                        <td>g.sgsi.rhgz@outlook.com</td>
+                        <td>8897</td>
+                        <td>998426378</td>
+                        <td>SAMSUNG SM-A057M</td>
+                        <td>CC:E6:86:1C:60:86</td>
+                        <td>LIMA CENTRO- JESUS MARIA<br>TRUJILLO<br>CHICLAYO<br>IQUITOS</td>
+                        <td>g.sgsi.soporte@outlook.com</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>KATHYA MERCEDES LLATAS MALDONADO</td>
+                        <td>40457965</td>
+                        <td>g.sgsi.kllm@outlook.com</td>
+                        <td>8892</td>
+                        <td>991130351</td>
+                        <td>Xiaomi 2312DRA50G</td>
+                        <td>3b:34:4d:da:84</td>
+                        <td>CHACHAPOYAS<br>PIURA<br>HUAURA<br>CUSCO<br>HUANCAYO<br>ICA</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>ROSITA NINJIO AGUILAR MUÑANTE</td>
+                        <td>43670349</td>
+                        <td>g.sgsi.rnam@outlook.com</td>
+                        <td>8829</td>
+                        <td>990270972</td>
+                        <td>Samsung Galaxy A55 5G</td>
+                        <td>A8:BA:69:1A:49:BC</td>
+                        <td>ABANCAY<br>AREQUIPA<br>HUANUCO<br>PUCALLPA-CALLERIA</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vRky74QFmWUUf_DcaReBS4UdFb5LE7w748CfK-M_FF77XYbbPlxazxG5nCfHmH73w/pub?gid=189967254&amp;single=true&amp;output=csv" target="_blank" class="btn">Ver CSV Original</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMINISTRADOR DE VIDEOS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0e7d8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #4a9a8f;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 1000px;
+        }
+        .header {
+            text-align: center;
+            color: #f7eded;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .card {
+            background-color: #f5e8c7;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            height: 250px; /* Adjusted height to accommodate iframe */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .card:hover {
+            background-color: #e0d3b2;
+            transition: background-color 0.3s;
+        }
+        .card h2 {
+            color: #333;
+            font-size: 20px;
+            margin: 0 0 10px;
+        }
+        .card p {
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+        .card iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            border-radius: 5px;
+        }
+        .card a.btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .card a.btn:hover {
+            background-color: #555;
+            transition: background-color 0.3s;
+        }
+        @media (max-width: 768px) {
+    .container {
+        width: 90vw;
+        padding: 10px;
+    }
+    .grid {
+        grid-template-columns: 1fr; /* Cambia a una columna en pantallas pequeñas */
+        gap: 10px;
+    }
+    .card, .card2 {
+        height: auto; /* Ajusta la altura automáticamente */
+        padding: 10px;
+    }
+    .card iframe, .card img {
+        max-width: 100%;
+        height: auto;
+    }
+    .table-container {
+        padding: 10px;
+    }
+    th, td {
+        font-size: 10px; /* Reduce el tamaño de fuente en tablas para pantallas pequeñas */
+        padding: 6px;
+    }
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        font-size: 20px;
+    }
+    .card h2, .card2 h2 {
+        font-size: 18px;
+    }
+    .card h3 {
+        font-size: 14px;
+    }
+    .card p, .card2 p {
+        font-size: 12px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">VIDEO MANAGER</div>
+        <div class="grid">
+            <button class="card">
+                <h2>PLANILLA CARGA LISTADO LOCADORES</h2>
+                <iframe src="https://drive.google.com/file/d/18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+                <a href="https://drive.google.com/uc?export=download&id=18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" download class="btn">Descargar</a>
+            </button>
+            <button class="card">
+                <h2>Video 2</h2>
+                <iframe src="https://drive.google.com/file/d/1S8D4pPgto7YOkMO1xV1YwQU9zsu-pk4C/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+                <a href="https://drive.google.com/uc?export=download&id=1S8D4pPgto7YOkMO1xV1YwQU9zsu-pk4C" download class="btn">Descargar</a>
+            </button>
+            <button class="card">
+                <h2>Video 3</h2>
+                <iframe src="https://drive.google.com/file/d/1IVXYeaJmNC4HadOii94myB7iHHLFF6p3/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+                <a href="https://drive.google.com/uc?export=download&id=1IVXYeaJmNC4HadOii94myB7iHHLFF6p3" download class="btn">Descargar</a>
+            </button>
+            <button class="card">
+                <h2>Video 4</h2>
+                <iframe src="https://drive.google.com/file/d/1OP__paeFrJCx87sSyN3JYTEwRG4PQvCt/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+                <a href="https://drive.google.com/uc?export=download&id=1OP__paeFrJCx87sSyN3JYTEwRG4PQvCt" download class="btn">Descargar</a>
+            </button>
+            <button class="card">
+                <h2>Video 5</h2>
+                <iframe src="https://drive.google.com/file/d/1ApBkXIbq_oYeEFmacxv5WSwqRMvju-4A/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+                <a href="https://drive.google.com/uc?export=download&id=1ApBkXIbq_oYeEFmacxv5WSwqRMvju-4A" download class="btn">Descargar</a>
+            </button>
+        </div>
+    </div>
+</body>
+</html>
