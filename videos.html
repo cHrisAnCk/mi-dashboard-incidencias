@@ -5,21 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMINISTRADOR DE VIDEOS</title>
     <style>
+        /* === FUENTE Y COLORES GLOBALES === */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0e7d8;
+            font-family: 'Open Sans', Arial, sans-serif;
+            background-color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
+
+        /* Títulos principales: color personalizado y fuente Open Sans */
+        .header, .table-container, .btn h2, .card p[style*="bold"], .card2 p[style*="bold"] {
+            font-family: 'Open Sans', sans-serif !important;
+            font-weight: 700;
+            color: #1a4971 !important; /* Cambia este color por el que quieras */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 160vh;
+            margin: 0;
+        }
         .container {
-            background-color: #4a9a8f;
+            background-color: #91abe4;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 1000px;
+            width: 1100px;
         }
         .header {
             text-align: center;
@@ -27,6 +44,14 @@
             font-size: 24px;
             margin-bottom: 20px;
             font-weight: bold;
+            /* AZUL + CONTORNO BLANCO */
+            color: #00214f !important;                    /* Azul */
+            -webkit-text-stroke: 0.1px white;               /* Contorno blanco */
+            text-shadow: 
+            -1.5px -1.5px 0 white,
+            1.5px -1.5px 0 white,
+            -1.5px  1.5px 0 white,
+            1.5px  1.5px 0 white;
         }
         .grid {
             display: grid;
@@ -34,11 +59,11 @@
             gap: 20px;
         }
         .card {
-            background-color: #f5e8c7;
+            background-color: #fdfeff;
             border-radius: 10px;
             padding: 15px;
             text-align: center;
-            height: 250px; /* Adjusted height to accommodate iframe */
+            height: 300px; /* Adjusted height to accommodate iframe */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -47,7 +72,7 @@
             width: 100%;
         }
         .card:hover {
-            background-color: #e0d3b2;
+            background-color: #d7f3fada;
             transition: background-color 0.3s;
         }
         .card h2 {
@@ -65,18 +90,22 @@
             height: 200px;
             border: none;
             border-radius: 5px;
+            
         }
         .card a.btn {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #333;
+            padding: 10px 30px;
+            background-color: #16186e;
             color: #fff;
+            
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
+            margin-top: 20px;
+            
         }
         .card a.btn:hover {
-            background-color: #555;
+            background-color: #5e97e2;
             transition: background-color 0.3s;
         }
         @media (max-width: 768px) {
@@ -127,7 +156,14 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">VIDEO MANAGER</div>
+        <div class="header-container">
+            <a href="index.html" class="back-btn">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#ffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </a>
+            <div class="header">GUÍAS AUDIOVISUALES</div>
+        </div>
         <div class="grid">
             <button class="card">
                 <h2>PLANILLA CARGA LISTADO LOCADORES</h2>
@@ -135,24 +171,41 @@
                 <a href="https://drive.google.com/uc?export=download&id=18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" download class="btn">Descargar</a>
             </button>
             <button class="card">
-                <h2>Video 2</h2>
+                <h2>RENDICION DE CUENTAS AL PERSONAL</h2>
                 <iframe src="https://drive.google.com/file/d/1S8D4pPgto7YOkMO1xV1YwQU9zsu-pk4C/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
                 <a href="https://drive.google.com/uc?export=download&id=1S8D4pPgto7YOkMO1xV1YwQU9zsu-pk4C" download class="btn">Descargar</a>
             </button>
             <button class="card">
-                <h2>Video 3</h2>
+                <h2>PROCEDIMIENTOS DE BIENES Y SERVICIOS</h2>
                 <iframe src="https://drive.google.com/file/d/1IVXYeaJmNC4HadOii94myB7iHHLFF6p3/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
                 <a href="https://drive.google.com/uc?export=download&id=1IVXYeaJmNC4HadOii94myB7iHHLFF6p3" download class="btn">Descargar</a>
             </button>
             <button class="card">
-                <h2>Video 4</h2>
+                <h2>PROCESO BIEN-PERU COMPRAS</h2>
                 <iframe src="https://drive.google.com/file/d/1OP__paeFrJCx87sSyN3JYTEwRG4PQvCt/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
                 <a href="https://drive.google.com/uc?export=download&id=1OP__paeFrJCx87sSyN3JYTEwRG4PQvCt" download class="btn">Descargar</a>
             </button>
             <button class="card">
-                <h2>Video 5</h2>
+                <h2>PROCESO PEDIDO-SERVICIO</h2>
                 <iframe src="https://drive.google.com/file/d/1ApBkXIbq_oYeEFmacxv5WSwqRMvju-4A/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
                 <a href="https://drive.google.com/uc?export=download&id=1ApBkXIbq_oYeEFmacxv5WSwqRMvju-4A" download class="btn">Descargar</a>
+            </button>
+            <button class="card">
+                <h2>PROCESO PEDIDO-SERVICIO BASICO</h2>
+                <iframe src="https://drive.google.com/file/d/1S86gQPRm8SN3VCPy0_w0qah9-zUDK7c5/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+                <a href="https://drive.google.com/uc?export=download&id=1S86gQPRm8SN3VCPy0_w0qah9-zUDK7c5" download class="btn">Descargar</a>
+            </button>
+
+            <button class="card">
+                <h2>REEMBOLSO</h2>
+                <iframe src="https://drive.google.com/file/d/18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+                <a href="https://drive.google.com/uc?export=download&id=18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" download class="btn">Descargar</a>
+            </button>
+
+            <button class="card">
+                <h2>VIATICOS</h2>
+                <iframe src="https://drive.google.com/file/d/13DoAYRPARIEBx2pon84fZGRn5Z5TL7P5/preview" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+                <a href="https://drive.google.com/uc?export=download&id=13DoAYRPARIEBx2pon84fZGRn5Z5TL7P5" download class="btn">Descargar</a>
             </button>
         </div>
     </div>
