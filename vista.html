@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIGEA - ONPE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; background: #f8faff; display: flex; min-height: 100vh; }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px; background: white; box-shadow: 2px 0 10px rgba(0,0,0,0.1); padding: 20px 15px; overflow-y: auto;
+    }
+    .sidebar-item {
+      display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; margin-bottom: 8px; cursor: pointer; transition: 0.3s;
+    }
+    .sidebar-item:hover, .sidebar-item.active { background: #e6f0ff; }
+    .sidebar-item img { width: 28px; height: 28px; }
+    .sidebar-item span { font-size: 0.9rem; color: #003087; }
+
+    /* Main Content */
+    .content { flex: 1; padding: 30px; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+    .header h1 { font-size: 1.3rem; color: #003087; }
+    .back-btn { background: #003087; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 500; }
+
+    /* Guías */
+    .section { margin-bottom: 40px; }
+    .section h2 { font-size: 1.1rem; color: #003087; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
+    .guides { display: flex; gap: 15px; flex-wrap: wrap; }
+    .guide { background: white; padding: 12px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center; min-width: 180px; }
+    .guide a { text-decoration: none; color: #003087; font-size: 0.9rem; display: block; margin-top: 8px; }
+
+    /* Videos */
+    .videos { display: flex; gap: 15px; overflow-x: auto; padding: 10px 0; }
+    .video-thumb { background: #eee; width: 240px; height: 140px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; }
+
+    /* Tabla */
+    table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    th { background: #f0f7ff; padding: 12px; text-align: left; font-weight: 500; color: #003087; }
+    td { padding: 12px; border-bottom: 1px solid #eee; }
+    tr:hover { background: #f8fbff; }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar (se genera con JS) -->
+  <aside class="sidebar" id="sidebar"></aside>
+
+  <main class="content">
+    <div class="header">
+      <div>
+        <h1>SIGEA <small style="color:#666;font-weight:normal;">Sistema de Gestión Administrativa</small></h1>
+        <p style="margin-top:8px; color:#555; font-size:0.95rem;">
+          Es una plataforma web interna accesible desde la ONPE, diseñada para la gestión integrada de tareas electorales y administrativas.
+        </p>
+      </div>
+      <a href="dashboard.html" class="back-btn">REGRESAR</a>
+    </div>
+
+    <!-- Guías -->
+    <div class="section">
+      <h2>Guías</h2>
+      <div class="guides">
+        <div class="guide">
+          <div style="display:flex; gap:8px; justify-content:center;">
+            <img src="img/icon-pdf.png" width="20" alt="PDF">
+            <img src="img/icon-eye.png" width="20" alt="Ver">
+          </div>
+          <a href="https://drive.google.com/file/d/XXX/view" target="_blank">FM40-ERS-1231-2025_V1.4</a>
+        </div>
+        <!-- Más guías -->
+      </div>
+    </div>
+
+    <!-- Videos -->
+    <div class="section">
+      <h2>Videos</h2>
+      <div class="videos">
+        <div class="video-thumb">Módulo Auxiliar de Bancos</div>
+        <!-- Más videos -->
+      </div>
+    </div>
+
+    <!-- Contactos -->
+    <div class="section">
+      <h2>Números de contacto</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>NRO</th><th>NOMBRES Y APELLIDOS</th><th>DNI</th><th>CORREO</th><th>ANEXO</th><th>CELULAR</th><th>ODPE ASIGNADAS</th><th>CORREO GENÉRICO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>RAFAEL HECTOR GUZMÁN ZUÑIGA</td><td>048001</td><td>CORREO@GMAIL.COM</td><td>38</td><td>951476584</td><td>ABANCAY - AREQUIPA - HUANUCO - PUCALLPA GALLERIA</td><td>CORREO@GMAIL.COM</td></tr>
+          <!-- Más filas -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>
+    // Cargar menú lateral según filtro guardado
+    const electionType = localStorage.getItem('electionType') || 'generales';
+    const modules = {
+      generales: [
+        { name: "SIGEA", icon: "icon-sigea.png", url: "sigea.html" },
+        { name: "SISLOC", icon: "icon-sisloc.png", url: "sisloc.html" },
+        // ... todos los de generales
+      ],
+      primarias: [
+        { name: "SIGEA", icon: "icon-sigea.png", url: "sigea.html" },
+        { name: "SISLOC", icon: "icon-sisloc.png", url: "sisloc.html" },
+        // ... todos los de primarias
+      ]
+    };
+
+    const sidebar = document.getElementById('sidebar');
+    modules[electionType].forEach(mod => {
+      const item = document.createElement('div');
+      item.className = 'sidebar-item' + (mod.url.includes(location.pathname.split('/').pop()) ? ' active' : '');
+      item.innerHTML = `<img src="img/${mod.icon}" alt="${mod.name}"><span>${mod.name}</span>`;
+      item.onclick = () => location.href = mod.url;
+      sidebar.appendChild(item);
+    });
+  </script>
+</body>
+</html>

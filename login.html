@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ONPE - Procesos Electorales</title>
+  <style>
+    /* === TODO TU CSS ANTERIOR (sin cambios) === */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #e6f0ff, #f5faff);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container { display: flex; max-width: 500px; width: 100%; background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; flex-wrap: wrap; }
+    .form-side { flex: 1; min-width: 300px; padding: 40px; background: white; }
+    .logo { text-align: center; margin-bottom: 20px; }
+    .logo img { height: 100px; }
+    .title { text-align: center; color: #003087; font-size: 1.4rem; font-weight: 600; margin-bottom: 6px; }
+    .subtitle { color: #003087; font-size: 0.95rem; text-align: center; margin-bottom: 25px; }
+    .input-group { margin-bottom: 18px; }
+    label { display: block; margin-bottom: 6px; color: #333; font-weight: 500; font-size: 0.95rem; }
+    input[type="text"], input[type="password"] {
+      width: 100%; padding: 12px 14px; border: 1.5px solid #ccc; border-radius: 8px; font-size: 1rem; transition: border 0.3s;
+    }
+    input:focus { outline: none; border-color: #003087; box-shadow: 0 0 0 3px rgba(0,48,135,0.1); }
+    .btn-login {
+      width: 100%; background: #d71921; color: white; border: none; padding: 14px; font-size: 1.1rem; font-weight: 600;
+      border-radius: 8px; cursor: pointer; margin-top: 10px; transition: background 0.3s;
+    }
+    .btn-login:hover { background: #b0161c; }
+    .forgot { text-align: center; margin-top: 20px; font-size: 0.9rem; }
+    .forgot a { color: #d71921; text-decoration: none; }
+    .forgot a:hover { text-decoration: underline; }
+    .footer { text-align: center; margin-top: 10px; font-size: 0.8rem; color: #777; }
+    .footer a { color: #003087; text-decoration: none; }
+    .logo2 { text-align: center; margin-bottom: 10px; margin-top: 20px; }
+    .logo2 img { height: 50px; }
+    .error-message { color: #d71921; font-size: 0.9rem; text-align: center; margin-top: 10px; display: none; }
+    @media (max-width: 768px) {
+      .container { flex-direction: column; }
+      .form-side { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-side">
+      <div class="logo">
+        <img src="onpe.png" alt="ONPE">
+      </div>
+      <h1 class="title">PROCESOS ELECTORALES</h1>
+      <p class="subtitle">SGSI GITE</p>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <label for="usuario">Usuario</label>
+          <input type="text" id="usuario" placeholder="Usuario" required />
+        </div>
+
+        <div class="input-group">
+          <label for="contrasena">Contraseña</label>
+          <input type="password" id="contrasena" placeholder="Contraseña" required />
+        </div>
+
+        <button type="submit" class="btn-login">INICIAR SESIÓN</button>
+        
+        <p class="error-message" id="errorMsg">Usuario o contraseña incorrectos.</p>
+      </form>
+
+      <div class="forgot">
+        <a href="#">¿Olvidaste tu contraseña?</a>
+      </div>
+      <div class="logo2">
+        <img src="cromo.png" alt="Google">
+      </div>
+
+      <div class="footer">
+        <p>Te sugerimos usar <a href="#">Google Chrome</a> | v1.0</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script de validación -->
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const usuario = document.getElementById('usuario').value.trim().toUpperCase();
+      const contrasena = document.getElementById('contrasena').value;
+      const errorMsg = document.getElementById('errorMsg');
+
+      if (usuario === 'ADMIN' && contrasena === 'ADMIN') {
+        errorMsg.style.display = 'none';
+        // Redirige a sistemas.html
+        window.location.href = 'sistemas.html';
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>

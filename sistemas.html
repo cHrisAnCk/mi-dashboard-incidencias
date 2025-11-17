@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ONPE - SGSI GITE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    .module-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      outline: none;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f8faff;
+      color: #333;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: white;
+      padding: 15px 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo-title { display: flex; align-items: center; gap: 15px; }
+    .logo-title img { height: 50px; }
+    .title-group h1 { font-size: 1.1rem; font-weight: 700; color: #003087; }
+    .title-group p { font-size: 0.8rem; color: #666; }
+    .user-info { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #555; }
+    .user-info a { color: #003087; text-decoration: none; font-weight: 500; }
+
+    .main { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+    .page-title { text-align: center; color: #3C7DBF; font-size: 1.1rem; margin-bottom: 10px; font-weight: 500; }
+
+    .filter { text-align: center; margin-bottom: 30px; }
+    .filter label { font-size: 0.9rem; color: #555; margin-right: 10px; }
+    .filter select { padding: 10px 15px; font-size: 1rem; border: 1px solid #ccc; border-radius: 8px; width: 750px; background: white; }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .module {
+      background: white;
+      width: 140px;
+      height: 140px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      padding: 15px;
+    }
+
+    .module:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .module img { width: 50px; height: 50px; object-fit: contain; }
+    .module span { font-size: 0.85rem; font-weight: 500; color: #003087; text-align: center; }
+
+    /* OCULTAR POR DEFECTO */
+    .hidden { display: none !important; }
+
+    @media (max-width: 768px) {
+      .modules-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+      .module { width: 120px; height: 120px; }
+      .filter select { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo-title">
+      <img src="image.png" alt="ONPE">
+      <div class="title-group">
+        <h1>PROCESOS ELECTORALES</h1>
+        <p>SGSI GITE</p>
+      </div>
+    </div>
+    <div class="user-info">
+      <span></span>
+      <a href="#">Cerrar Sesión</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <h2 class="page-title">
+      Sistemas De Integración De Procesos Electorales De La Subgerencia De Sistemas De Información De La Gite
+    </h2>
+
+    <div class="filter">
+      <label for="election-type">Tipo de elección</label>
+      <select id="election-type">
+        <option value="generales">ELECCIONES GENERALES 2026</option>
+        <option value="primarias">ELECCIONES PRIMARIAS 2026</option>
+      </select>
+    </div>
+
+    <!-- UN SOLO CONTENEDOR -->
+    <div class="modules-grid" id="modules-container">
+
+      <!-- GENERALES -->
+      <a href="sistemas/sistemades/index.html#sigea" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EP/INICIO/iconSIGEA.svg" alt="SIGEA"><span>SIGEA</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#sigloc" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconSIGLOC.svg" alt="SISLOC"><span>SISLOC</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#sasa" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconSASA.svg" alt="SASA"><span>SASA</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#ETLV" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconETLV.svg" alt="ETLV"><span>ETLV</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#side" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconSIDE.svg" alt="SIDE"><span>SIDE</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#sidemm" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconSIDEMM.svg" alt="SIDEMM"><span>SIDEMM</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#clv" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconCLV.svg" alt="CLV"><span>CLV</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#sigap" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconSIGAP.svg" alt="SIGAP"><span>SIGAP</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#sce" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconSCE.svg" alt="SCE"><span>SCE</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#claridad" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconCLARIDAD.svg" alt="CLARIDAD"><span>CLARIDAD</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#cae" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconCAE.svg" alt="CAE"><span>CAE</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#cemm" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconCEMM.svg" alt="CEMM"><span>CEMM</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#gemma" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconGEMMA.svg" alt="GEMMA"><span>GEMMA</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#rop" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconROPC.svg" alt="ROPC"><span>ROPC</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#sam" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconSAM.svg" alt="SAM"><span>SAM</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#scm" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconSCM.svg" alt="SCM"><span>SCM</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#sgcae" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconSGCAE.svg" alt="SGCAE"><span>SGCAE</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#sisgoe" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconSISGOE.svg" alt="SISGOE"><span>SISGOE</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#sisplan" class="module-link">
+        <div class="module" data-type="generales">
+          <img src="iconos/EG/INICIO/iconSISPLAN.svg" alt="SISPLAN"><span>SISPLAN</span>
+        </div>
+      </a>
+
+      <!-- PRIMARIAS -->
+      <a href="sistemas/sistemades/index.html#sigea" class="module-link">
+        <div class="module" data-type="primarias">
+          <img src="iconos/EG/INICIO/iconSIGEA.svg" alt="SIGEA"><span>SIGEA</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#sigloc" class="module-link">
+        <div class="module" data-type="primarias">
+          <img src="iconos/EP/INICIO/iconSIGLOC.svg" alt="SIGLOC"><span>SIGLOC</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#onpeduca" class="module-link">
+        <div class="module" data-type="primarias">
+          <img src="iconos/EP/INICIO/iconONPEDUCA.svg" alt="ONPEDUCA CPO"><span>ONPEDUCA</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#rep" class="module-link">
+        <div class="module" data-type="primarias">
+          <img src="iconos/EP/INICIO/iconREP.svg" alt="REP"><span>REP</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#sciap" class="module-link">
+        <div class="module" data-type="primarias">
+          <img src="iconos/EP/INICIO/iconSCIAP.svg" alt="SCIAP"><span>SCIAP</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#clv" class="module-link">
+        <div class="module" data-type="primarias">
+          <img src="iconos/EP/INICIO/iconCLV.svg" alt="CLV"><span>CLV</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#claridad" class="module-link">
+        <div class="module" data-type="primarias">
+          <img src="iconos/EP/INICIO/iconCLARIDAD.svg" alt="CLARIDAD"><span>CLARIDAD</span>
+        </div>
+      </a>
+      <a href="sistemas/sistemades/index.html#sigma" class="module-link">
+        <div class="module" data-type="primarias">
+          <img src="iconos/EP/INICIO/iconSIGMA.svg" alt="SIGMA"><span>SIGMA</span>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <script>
+    const select = document.getElementById('election-type');
+    const modules = document.querySelectorAll('.module');
+
+    function filterModules() {
+      const type = select.value;
+      modules.forEach(mod => {
+        mod.parentElement.classList.toggle('hidden', mod.dataset.type !== type);
+      });
+    }
+
+    // Mostrar GENERALES por defecto
+    filterModules();
+
+    select.addEventListener('change', filterModules);
+  </script>
+
+</body>
+</html>
