@@ -23,9 +23,25 @@ const sistemas = [
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "FM40-ERS-1231-2025_V1.4 ",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
+      ,
+      {
+        nombre: "FM40-ERS-1231-2025_V1.4.2",
+        url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
+      },
+      
+
+
+
+
+
+
+
+
+
+
     ],
     videos: [
       { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
@@ -53,10 +69,19 @@ const sistemas = [
     subtitulo: "Sistema Integrado de Gestión Locadores de Servicios",
     descripcion: "Gestión de recursos y logística electoral en tiempo real.",
     guias: [
-      { nombre: "Manual de Usuario SIGLOC", url: "https://drive.google.com/file/d/1EjemploIDdeGuia/view" }
+      {
+  nombre: "Manual de usuario SIGLOC",
+  url: "https://drive.google.com/file/d/1B84mT85b9GXfRuQTVuUkSMAQnNiBX8pl/view?usp=drive_link"
+},
+{
+  nombre: "Guía del postulante SIGLOC",
+  url: "https://drive.google.com/file/d/14ncDN8LTdG32vSdtfFJDk6gd2I-75Kzg/view?usp=drive_link"
+}
+
     ],
     videos: [
-      { nombre: "Configuración de almacenes", id: "1EjemploIDdeVideo" }
+      /*ASIGNAR VIDEOS LUEGO*/ 
+      
     ],
     contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -84,17 +109,16 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -121,17 +145,16 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -158,17 +181,13 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
-        url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
-      },
-      {
-        nombre: "FM40-ERS-1231-2025_V1.4",
-        url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
+        nombre: "Manual de usuario SIDE",
+        url: "https://drive.google.com/file/d/17h_S2pML2J1Ex08IKZK4xDg-kr8FVutd/view?usp=drive_link"
+
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -195,17 +214,16 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -232,17 +250,18 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      { nombre: "CAPACITACION", 
+      id: "1hsETuwlKGmeLBW59BJEQl486tLUm3X8i" }
+      
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -269,18 +288,25 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
-        url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
-      },
-      {
-        nombre: "FM40-ERS-1231-2025_V1.4",
-        url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
-      }
+    nombre: "Guía Administrador",
+    url: "https://drive.google.com/file/d/1YfrmsEH5gAt-umokTsqt6zcByu6DkH1Q/view?usp=sharing"
+    },
+    {
+      nombre: "Guía Aprovador",
+      url: "https://drive.google.com/file/d/1YfrmsEH5gAt-umokTsqt6zcByu6DkH1Q/view?usp=sharing"
+    },
+    {
+      nombre: "Guia Operador",
+      url: "https://drive.google.com/file/d/1wcXURfr4PUmgRoMK4ymbuIxsEdz88LWT/view?usp=drive_link"
+    },
+    {
+      nombre: "Guia Registrador",
+      url: "https://drive.google.com/file/d/1wcXURfr4PUmgRoMK4ymbuIxsEdz88LWT/view?usp=drive_link"
+    }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
-    ],
+      /*ASIGNAR VIDEOS LUEGO*/
+          ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
       ["2", "Rosita Ninjio Aguilar Muñante", "990270972"],
@@ -306,17 +332,16 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -343,18 +368,17 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
-        url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
+        nombre: "Guía 1",
+        url: "https://drive.google.com/file/d/1b6jvD7xXKRtNHIRdyZxz5auOfpuPk4eo/view?usp=sharing"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
-        url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
+        nombre: "Guía 2",
+        url: "https://drive.google.com/file/d/1GcTMeGt8Upc-E4rnQ-MWZzOWfCq4Zp8f/view?usp=drive_link"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
-    ],
+      /*ASIGNAR VIDEOS LUEGO*/
+          ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
       ["2", "Rosita Ninjio Aguilar Muñante", "990270972"],
@@ -380,17 +404,16 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -417,17 +440,16 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+    /*ASIGNAR VIDEOS LUEGO*/ 
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -454,17 +476,16 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+/*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -491,18 +512,18 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
-    ],
+
+      /*ASIGNAR VIDEOS LUEGO*/
+         ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
       ["2", "Rosita Ninjio Aguilar Muñante", "990270972"],
@@ -528,17 +549,16 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      /*ASIGNAR VIDEOS LUEGO*/ 
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -565,17 +585,16 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+   /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -602,17 +621,16 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -639,17 +657,17 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+ 
+       /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -676,17 +694,17 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+  
+  /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -714,17 +732,41 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
-        url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
+        nombre: "Cursos",
+        url: "https://drive.google.com/file/d/1ocBxuY_NvNCdWdNMEleegz9mghU2ZivO/view?usp=sharing"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
-        url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
+        nombre: "Estudiante CPO",
+        url: "https://drive.google.com/file/d/1KE4S4GLXJ42GJvKdctC8dNL8O8JViJlN/view?usp=drive_link"
+      },
+      {
+        nombre: "Tutor CPO",
+        url: "https://drive.google.com/file/d/1tmIrxv2zkDTD6pnpBa7VFkwp3khfrlHu/view?usp=drive_link"
+      },
+      {
+        nombre: "Usuarios",
+        url: "https://drive.google.com/file/d/1JJpE5IXZ1_sg4Lv9h-jGG7vQY3-IBRY0/view?usp=drive_link"
+      },
+      {
+        nombre: "Matrícula",
+        url: "https://drive.google.com/file/d/1o2FIj2qTzlXjrncp4Ow4MlCgJM9d3rfz/view?usp=drive_link"
+      },
+      {
+        nombre: "Encuesta",
+        url: "https://drive.google.com/file/d/1oBQMeJgGm-9JgYl-AVqqLeY5uV91kgN_/view?usp=drive_link"
+      },
+      {
+        nombre: "Certificado",
+        url: "https://drive.google.com/file/d/12zkXuEJTtpg7gQ6d4GcfRiuViV8PyPP4/view?usp=drive_link"
+      },
+      {
+        nombre: "Contenidos",
+        url: "https://drive.google.com/file/d/1ML25rCKNYvS1_YjSNLgmTnTeTjCRbyj2/view?usp=drive_link"
       }
+
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -751,17 +793,14 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
-        url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
-      },
-      {
-        nombre: "FM40-ERS-1231-2025_V1.4",
-        url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
+      nombre: "Manual de Usuario",
+      url: "https://docs.google.com/presentation/d/18VcPRUpCMhga-2yV5K6_arBV_My_mwLl/edit?usp=drive_link&ouid=115133451418665439696&rtpof=true&sd=true"
       }
+
+      
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -789,17 +828,16 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -827,17 +865,16 @@ const sistemas = [
     descripcion: "",
     guias: [
       {
-        nombre: "Guía SIGEA - Proceso Electoral",
+        nombre: "Guia Ejemplo",
         url: "https://docs.google.com/document/d/1ZMr-OEIG1EZaalAr7ueENsa7hUyNNCS4/edit?usp=drive_link"
       },
       {
-        nombre: "FM40-ERS-1231-2025_V1.4",
+        nombre: "Guia Ejemplo",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       }
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      /*ASIGNAR VIDEOS LUEGO*/
     ],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
