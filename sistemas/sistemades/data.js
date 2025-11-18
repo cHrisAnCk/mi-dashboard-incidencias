@@ -44,8 +44,8 @@ const sistemas = [
 
     ],
     videos: [
-      { nombre: "Módulo Auxiliar de bancos", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Módulo Auxiliar de bancos", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      { nombre: "Sigea Guia 1", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
+      { nombre: "Sigea Guia 2", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
     ],
     contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
