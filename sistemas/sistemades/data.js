@@ -819,7 +819,7 @@ const sistemas = [
 
   /*SCIAP*/ 
 ,
-  {
+  /*{
     id: "sciap",
     nombre: "SCIAP",
     iconSvg: "iconos/EP/MENU/iconSCIAP2.svg",  // Tu SVG
@@ -838,7 +838,7 @@ const sistemas = [
     ],
     videos: [
       /*ASIGNAR VIDEOS LUEGO*/
-    ],
+    /*],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
       ["2", "Rosita Ninjio Aguilar Muñante", "990270972"],
@@ -852,11 +852,11 @@ const sistemas = [
       ["10", "Arturo Jorge Machuca", "945301483"],
       ["11", "Mayra Casimiro Díaz", "942835461"]
     ]
-  }
+  }*/
 
   /*SIGMA */
-,
-  {
+
+  /*{
     id: "sigma",
     nombre: "SIGMA",
     iconSvg: "iconos/EP/MENU/iconSIGMA2.svg",  // Tu SVG
@@ -875,7 +875,7 @@ const sistemas = [
     ],
     videos: [
       /*ASIGNAR VIDEOS LUEGO*/
-    ],
+    /*],
    contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
       ["2", "Rosita Ninjio Aguilar Muñante", "990270972"],
@@ -890,6 +890,7 @@ const sistemas = [
       ["11", "Mayra Casimiro Díaz", "942835461"]
     ]
   }
+  */
 
          
 
