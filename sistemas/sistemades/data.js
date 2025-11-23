@@ -44,8 +44,14 @@ const sistemas = [
 
     ],
     videos: [
-      { nombre: "Sigea Guia 1", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
-      { nombre: "Sigea Guia 2", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" }
+      { nombre: "Planilla Carga Listado de Locadores", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
+      { nombre: "Reembolso", id: "18Q-KvpVBG0F4c_SWGvSiL6G5_71F8_pg" },
+      { nombre: "Rendición de cuenta al personal", id: "1S8D4pPgto7YOkMO1xV1YwQU9zsu-pk4C" },
+      { nombre: "Pedidos", id: "1IVXYeaJmNC4HadOii94myB7iHHLFF6p3" },
+      { nombre: "Pedidos Perú Compras", id: "1OP__paeFrJCx87sSyN3JYTEwRG4PQvCt" },
+      { nombre: "Pedido de servicio", id: "1ApBkXIbq_oYeEFmacxv5WSwqRMvju-4A" },
+      { nombre: "Pedido servicio básico", id: "1S86gQPRm8SN3VCPy0_w0qah9-zUDK7c5" },
+      { nombre: "Viáticos", id: "13DoAYRPARIEBx2pon84fZGRn5Z5TL7P5" }
     ],
     contactos: [
       ["1", "Kathya Mercedes Llatas Maldonado", "991130351"],
@@ -898,4 +904,5 @@ const sistemas = [
 
 
   
+
 ];
