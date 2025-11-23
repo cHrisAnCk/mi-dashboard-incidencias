@@ -5,113 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historial de Cambios - Tabla Compartida ONPE</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fa; color: #333; }
-        .container { max-width: 1100px; margin: 20px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        h1 { text-align: center; color: #0078d4; }
-        .botones { text-align: center; margin: 25px 0; }
-        button { padding: 12px 25px; margin: 0 10px; background: #0078d4; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            margin: 0; padding: 20px; 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+            color: #333; 
+        }
+        .container { 
+            max-width: 1200px; margin: 0 auto; 
+            background: white; border-radius: 10px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 30px; 
+        }
+        h1 { text-align: center; color: #0078d4; margin-bottom: 10px; }
+        .subtitulo { text-align: center; color: #666; margin-bottom: 30px; }
+        .botones { text-align: center; margin-bottom: 30px; }
+        button { 
+            background: #0078d4; color: white; border: none; 
+            padding: 12px 25px; border-radius: 6px; cursor: pointer; 
+            font-size: 16px; margin: 0 10px; transition: background 0.3s; 
+        }
         button:hover { background: #106ebe; }
-        iframe { width: 100%; height: 750px; border: none; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .nota { text-align: center; color: #666; font-size: 14px; margin-top: 15px; }
-        .error { background: #ffebee; border: 1px solid #f44336; color: #c62828; padding: 15px; border-radius: 5px; margin: 20px 0; text-align: center; }
-        .fallback { text-align: center; margin: 20px 0; }
-        .enlace { display: inline-block; margin: 10px; padding: 10px 20px; background: #4caf50; color: white; text-decoration: none; border-radius: 5px; }
-        .enlace:hover { background: #45a049; }
-        @media (max-width: 768px) { .iframe { height: 500px; } }
+        .seccion { margin: 30px 0; }
+        .seccion h2 { color: #0078d4; border-bottom: 2px solid #0078d4; padding-bottom: 10px; }
+        table { 
+            width: 100%; border-collapse: collapse; margin-top: 15px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+        }
+        th, td { 
+            border: 1px solid #ddd; padding: 12px; text-align: left; 
+        }
+        th { background: #0078d4; color: white; font-weight: bold; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        tr:hover { background: #e6f3ff; }
+        .nota { 
+            text-align: center; color: #666; font-size: 14px; 
+            margin-top: 20px; padding: 15px; background: #f0f8ff; 
+            border-radius: 5px; 
+        }
+        @media (max-width: 768px) { 
+            .container { padding: 15px; } 
+            table { font-size: 14px; } 
+            button { display: block; margin: 10px auto; width: 80%; } 
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Tabla Compartida + Historial de Cambios</h1>
+        <h1>Historial de Cambios - Tabla Excel Compartida</h1>
+        <p class="subtitulo"> Click en los botones para abrir la tabla o su historial completo (usuarios, fechas, versiones).</p>
         
         <div class="botones">
-            <button onclick="mostrarTabla()">Ver/Editar Tabla</button>
-            <button onclick="mostrarHistorial()">Ver Historial de Cambios</button>
+            <button onclick="abrirTabla()">Abrir Tabla para Ver/Editar</button>
+            <button onclick="abrirHistorial()">Abrir Historial de Cambios</button>
         </div>
 
-        <div id="mensajeError" class="error" style="display: none;">
-            <strong>¡Atención!</strong> Si ves este mensaje, estás abriendo el archivo localmente (file://). 
-            <br>Sube este HTML a GitHub Pages o Netlify para que el embed funcione. 
-            <br>Mientras, usa los <a href="#" onclick="mostrarFallback()">enlaces directos abajo</a>.
-        </div>
-
-        <div id="contenidoIframe">
-            <iframe id="contenido" src="" style="display: none;"></iframe>
-        </div>
-
-        <div id="fallback" class="fallback" style="display: none;">
-            <h2>Modo Fallback: Enlaces Directos (sin embed)</h2>
-            <p>Abre en nueva pestaña - funciona sin login:</p>
-            <a href="https://onpegobpe-my.sharepoint.com/:x:/g/personal/sgsi_onpe_gob_pe/Efv-0GWyBgBAulT7UBrYoXgBiyzqGawGUwW3kY6az1MzjA?rtime=LW6_5C4q3kg" target="_blank" class="enlace">Abrir Tabla para Editar</a>
-            <br>
-            <a href="https://onpegobpe-my.sharepoint.com/:x:/g/personal/sgsi_onpe_gob_pe/Efv-0GWyBgBAulT7UBrYoXgBiyzqGawGUwW3kY6az1MzjA?rtime=LW6_5C4q3kg" target="_blank" onclick="abrirHistorialDirecto(event)" class="enlace">Abrir Historial Completo (Usuarios + Fechas)</a>
-            <p class="nota">Para ver el historial: En la página que abre, ve a Archivo > Info > Historial de versiones.</p>
+        <div class="seccion">
+            <h2>Últimos Cambios Registrados (Ejemplo Automático)</h2>
+            <p style="color: #666; font-style: italic;">Esta tabla se actualiza manualmente. Para datos reales, abre el historial arriba y copia/pega aquí.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha y Hora</th>
+                        <th>Usuario</th>
+                        <th>Correo</th>
+                        <th>Fila/Celda Modificada</th>
+                        <th>Valor Anterior</th>
+                        <th>Valor Nuevo</th>
+                        <th>Versión</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>22/11/2025 14:30</td>
+                        <td>Usuario Ejemplo</td>
+                        <td>ejemplo@onpe.gob.pe</td>
+                        <td>Fila 5, Celda A5</td>
+                        <td>Valor viejo</td>
+                        <td>Valor nuevo</td>
+                        <td>1.2</td>
+                    </tr>
+                    <tr>
+                        <td>21/11/2025 09:15</td>
+                        <td>Otro Usuario</td>
+                        <td>otro@onpe.gob.pe</td>
+                        <td>Fila 10, Columna B</td>
+                        <td>N/A</td>
+                        <td>Actualizado</td>
+                        <td>1.1</td>
+                    </tr>
+                    <!-- Agrega más filas aquí con datos reales del historial -->
+                </tbody>
+            </table>
         </div>
 
         <div class="nota">
-            Esta página funciona sin usuario ni contraseña · Cualquier persona con el enlace puede usarla
+            <strong></strong> 
+            <br>
         </div>
     </div>
 
     <script>
-        const iframe = document.getElementById('contenido');
-        const errorDiv = document.getElementById('mensajeError');
-        const fallbackDiv = document.getElementById('fallback');
-        const iframeContainer = document.getElementById('contenidoIframe');
-
-        // Detectar si es local (file://)
-        if (window.location.protocol === 'file:') {
-            errorDiv.style.display = 'block';
-            iframeContainer.style.display = 'none';
-            fallbackDiv.style.display = 'block';
-        }
-
-        // URL para embed de la tabla
-        function mostrarTabla() {
-            if (window.location.protocol === 'file:') {
-                mostrarFallback();
-                return;
-            }
-            iframe.style.display = 'block';
-            iframe.src = "https://onpegobpe-my.sharepoint.com/_layouts/15/Doc.aspx?sourcedoc=Efv-0GWyBgBAulT7UBrYoXgBiyzqGawGUwW3kY6az1MzjA&action=embedview&wdAllowInteractivity=True&wdHideGridlines=False";
-        }
-
-        // URL para historial (embed si posible, sino directo)
-        function mostrarHistorial() {
-            if (window.location.protocol === 'file:') {
-                abrirHistorialDirecto();
-                return;
-            }
-            iframe.style.display = 'block';
-            iframe.src = "https://onpegobpe-my.sharepoint.com/:x:/g/personal/sgsi_onpe_gob_pe/Efv-0GWyBgBAulT7UBrYoXgBiyzqGawGUwW3kY6az1MzjA?rtime=LW6_5C4q3kg";  // Abre la vista general; agrega &view=version-history si funciona
-            iframe.onload = function() {
-                // Si carga, intenta redirigir a historial
-                setTimeout(() => { iframe.src += '&view=version-history'; }, 2000);
-            };
-        }
-
-        function mostrarFallback() {
-            fallbackDiv.style.display = 'block';
-        }
-
-        function abrirHistorialDirecto(event) {
-            if (event) event.preventDefault();
-            // Abre directamente el historial: Usa tu enlace original y navega manualmente, o este:
+        // Enlace directo a la tabla (tu URL original)
+        function abrirTabla() {
             window.open('https://onpegobpe-my.sharepoint.com/:x:/g/personal/sgsi_onpe_gob_pe/Efv-0GWyBgBAulT7UBrYoXgBiyzqGawGUwW3kY6az1MzjA?rtime=LW6_5C4q3kg', '_blank');
         }
 
-        // Inicial: Muestra tabla si no es local
-        if (window.location.protocol !== 'file:') {
-            mostrarTabla();
-        } else {
-            mostrarFallback();
+        // Enlace al historial (agrega parámetro para version history; si no carga directo, navega manualmente)
+        function abrirHistorial() {
+            // Intenta con parámetro; si falla, usa el mismo que la tabla y navega a "Historial de versiones"
+            const urlHist = 'https://onpegobpe-my.sharepoint.com/:x:/g/personal/sgsi_onpe_gob_pe/Efv-0GWyBgBAulT7UBrYoXgBiyzqGawGUwW3kY6az1MzjA?rtime=LW6_5C4q3kg&view=version-history';
+            window.open(urlHist, '_blank');
         }
-
-        // Manejo de error en iframe
-        iframe.onerror = function() {
-            errorDiv.innerHTML += '<br><strong>Error de carga:</strong> Verifica que el enlace sea público. Usa fallback.';
-            mostrarFallback();
-        };
     </script>
 </body>
 </html>
