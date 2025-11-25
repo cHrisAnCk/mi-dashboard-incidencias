@@ -31,17 +31,51 @@ const sistemas = [
         nombre: "FM40-ERS-1231-2025_V1.4.2",
         url: "https://drive.google.com/file/d/1EitUlDIrNf_ClLBpptYPleu1A_BC6JiU/view?usp=sharing"
       },
+      {
+        nombre: "MANTENIMIENTO DE PARAMETROS",
+        url: "https://drive.google.com/file/d/1oLsjA4EBMeaI0OP4qnuU1hBlq3WkpaSa/view?usp=drive_link"
+      },
+      {
+        nombre: "APERTURA DE CAJA CHICA",
+        url: "https://drive.google.com/file/d/1jU2-1jeRJcUiss41Tp7fM6b9nOyEqH0p/view?usp=drive_link"
+      },
+      {
+        nombre: "REEMBOLSO",
+        url: "https://drive.google.com/file/d/1-29XQw6YTrn2uK168O2kR50AfE1SWlq8/view?usp=drive_link"
+      },
+      {
+        nombre: "ENTREGA A RENDIR AL PERSONAL",
+        url: "https://drive.google.com/file/d/1E1mU6SJzwiAKGdeLCZXrJgaztXVMyO-I/view?usp=drive_link"
+      },
+      {
+        nombre: "VIÁTICOS POR COMISION DE SERVICIO",
+        url: "https://drive.google.com/file/d/1AnbgvolFtxMnfi1NJ1AXI0a0psQU4kap/view?usp=drive_link"
+      },
+      {
+        nombre: "CERTIFICACION DE LA PLANILLA Y CARGA LISTADO DE PAGOS",
+        url: "https://drive.google.com/file/d/1foJ5f608OD6aPdsvMdAS3I0j_EMEZNT_/view?usp=drive_link"
+      },
+      {
+        nombre: "CARGOS BANCARIOS",
+        url: "https://drive.google.com/file/d/1GVIhARxNvolvg-EBfQoFGO1ATv8pomKN/view?usp=drive_link"
+      },
+      {
+        nombre: "PEDIDO BIEN",
+        url: "https://drive.google.com/file/d/1d_n-bL6UBlL5l2ZA3JtpHMq51o1oopMy/view?usp=drive_link"
+      },
+      {
+        nombre: "PEDIDO PERU COMPRAS",
+        url: "https://drive.google.com/file/d/1zXWG4AFRDa90q8-37sbdvIBKJ6676cxr/view?usp=drive_link"
+      },
+      {
+        nombre: "PEDIDO SERVICIO",
+        url: "https://drive.google.com/file/d/1yMJ9sWjToaAdmM8KKQuJWX9Z3-sf2d1S/view?usp=drive_link"
+      },
+      {
+        nombre: "PEDIDO SERVICIO BASICO",
+        url: "https://drive.google.com/file/d/181yb4tY_SteLPwA90kq1tgXtcT1nd9YK/view?usp=drive_link"
+      }
       
-
-
-
-
-
-
-
-
-
-
     ],
     videos: [
       { nombre: "Planilla Carga Listado de Locadores", id: "1W77jGlL42-pMtMT9YuRTAex8Y7J8EAL4" },
@@ -906,3 +940,4 @@ const sistemas = [
   
 
 ];
+
