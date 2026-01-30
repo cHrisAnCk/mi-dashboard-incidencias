@@ -285,7 +285,7 @@ const sistemas = [
     id: "sidemm",
     nombre: "SIDEMM",
     iconSvg: "iconos/EG/MENU/iconSIDEMM2.svg",  // Tu SVG
-    titulo: "SIDEM",
+    titulo: "SIDEMM",
     subtitulo: "Sistema de Integración de Miembros de Mesa",
     descripcion: "",
     guias: [
@@ -1167,4 +1167,5 @@ const sistemas = [
   
 
 ];
+
 
